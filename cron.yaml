@@ -1,0 +1,4 @@
+cron:
+- description: tweet every word
+  url: /tweet
+  schedule: every 30 minutes synchronized
