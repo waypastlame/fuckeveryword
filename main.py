@@ -1,25 +1,102 @@
-#!/usr/bin/env python
-#
-# Copyright 2007 Google Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
+# Copyright (c) Brendan McCarthy
+
+import os
 import webapp2
+import ConfigParser
+import jinja2
+import string
+import tweepy
+import logging
+import urllib
+import re
+import sys
+
+from tweepy import *
+from google.appengine.api import users
+from google.appengine.ext import db
+
+JINJA_ENVIRONMENT = jinja2.Environment(
+	loader     = jinja2.FileSystemLoader(os.path.dirname(__file__)),
+	extensions = ['jinja2.ext.autoescape'],
+	autoescape = False)
+
+class Index(db.Model):
+	index = db.IntegerProperty()
+
+def tweet(status):
+	config = ConfigParser.RawConfigParser()
+	config.read('settings.cfg')
+	
+	# http://dev.twitter.com/apps/myappid
+	CONSUMER_KEY = config.get('API Information', 'CONSUMER_KEY')
+	CONSUMER_SECRET = config.get('API Information', 'CONSUMER_SECRET')
+	# http://dev.twitter.com/apps/myappid/my_token
+	ACCESS_TOKEN_KEY = config.get('API Information', 'ACCESS_TOKEN_KEY')
+	ACCESS_TOKEN_SECRET = config.get('API Information', 'ACCESS_TOKEN_SECRET')
+
+	auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+	auth.set_access_token(ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
+	api = tweepy.API(auth)
+	result = api.update_status(status)
+
+def get_current_line(index):
+	with open("words.txt") as source_fh:
+		for i in range(index+1):
+			status_str = "fuck " + source_fh.readline().strip()
+		return status_str
 
 class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('Hello world!')
+	def get(self):
+		user = users.get_current_user()
+		disabled = ""
+
+		if users.get_current_user():
+			url = users.create_logout_url(self.request.uri)
+			url_linktext = 'Hello, ' + user.nickname() + '. Logout'
+			if user.nickname() != "brendan10211":
+				disabled = "disabled"
+		else:
+			url = users.create_login_url(self.request.uri)
+			url_linktext = 'Hello, guest. Login'
+			disabled = "disabled"
+
+		template_values = {
+			'url': url,
+			'url_linktext': url_linktext,
+			#'disabled': disabled,
+		}
+
+		template = JINJA_ENVIRONMENT.get_template('index.html')
+		self.response.write(template.render(template_values))
+
+class TweetHandler(webapp2.RequestHandler):
+	def get(self):
+		indexList = db.GqlQuery("SELECT * " +
+    							"FROM Index ")
+		indexNum = indexList[0].index
+
+		tweet(get_current_line(indexNum))
+
+		indexNum += 1
+
+		newIndex = Index()
+		newIndex.index = indexNum
+		newIndex.put()
+
+		db.delete(indexList[0])
+
+		self.redirect('/')
+
+class MakeHandler(webapp2.RequestHandler):
+	def get(self):
+		index = Index()
+		index.index = 0
+		index.put()
+
+		self.redirect('/')
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/tweet', TweetHandler),
+    ('/make', MakeHandler),
 ], debug=True)
