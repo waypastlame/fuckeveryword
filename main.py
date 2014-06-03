@@ -63,7 +63,7 @@ class MainHandler(webapp2.RequestHandler):
 		template_values = {
 			'url': url,
 			'url_linktext': url_linktext,
-			#'disabled': disabled,
+			'disabled': disabled,
 		}
 
 		template = JINJA_ENVIRONMENT.get_template('index.html')
