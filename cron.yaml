@@ -1,4 +1,4 @@
 cron:
 - description: tweet every word
   url: /tweet
-  schedule: every 30 minutes synchronized
+  schedule: every 30 minutes from 00:00 to 23:30
