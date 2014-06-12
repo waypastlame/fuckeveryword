@@ -53,7 +53,9 @@ class MainHandler(webapp2.RequestHandler):
 		if users.get_current_user():
 			url = users.create_logout_url(self.request.uri)
 			url_linktext = 'Hello, ' + user.nickname() + '. Logout'
-			if user.nickname() != "brendan10211":
+			if user.nickname() == "brendan10211" or user.nickname() == "test@example.com":
+				disabled = ""
+			else:
 				disabled = "disabled"
 		else:
 			url = users.create_login_url(self.request.uri)
@@ -74,16 +76,21 @@ class TweetHandler(webapp2.RequestHandler):
 		indexList = db.GqlQuery("SELECT * " +
     							"FROM Index ")
 		indexNum = indexList[0].index
+		tweet_text = get_current_line(indexNum)
 
-		tweet(get_current_line(indexNum))
+		try:
+			tweet(tweet_text)
+			logging.info(tweet_text)
+		except TweepError as e: 
+			logging.info(e)
 
 		indexNum += 1
+
+		db.delete(db.Query())
 
 		newIndex = Index()
 		newIndex.index = indexNum
 		newIndex.put()
-
-		db.delete(indexList[0])
 
 		self.redirect('/')
 
