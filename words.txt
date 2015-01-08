@@ -3502,6 +3502,7 @@ animations
 animato
 animator
 animators
+anime
 animism
 animisms
 animist
@@ -5453,6 +5454,7 @@ asseverating
 asseveration
 asseverations
 asshole
+assholes
 assiduity
 assiduous
 assiduously
@@ -6539,6 +6541,7 @@ azure
 azures
 azurite
 azurites
+/b/
 baa
 baaed
 baaing
@@ -6791,8 +6794,10 @@ badmouths
 badness
 badnesses
 bads
+bae
 baedeker
 baedekers
+baes
 baffle
 baffled
 bafflement
@@ -7206,6 +7211,7 @@ banzai
 banzais
 baobab
 baobabs
+bap
 baptise
 baptised
 baptises
@@ -7408,6 +7414,7 @@ barouches
 barque
 barquentine
 barques
+barack
 barrable
 barrack
 barracked
@@ -8852,6 +8859,8 @@ bewrayed
 bewrayer
 bewrays
 bey
+beyblade
+beyblades
 beyond
 beyonds
 beys
@@ -9464,7 +9473,7 @@ bitable
 bitch
 bitched
 bitchery
-bitches
+bitches get money
 bitchier
 bitchiest
 bitchily
@@ -10031,6 +10040,7 @@ blowiest
 blowiness
 blowing
 blowjob
+blowjobs
 blown
 blowoff
 blowoffs
@@ -11817,11 +11827,13 @@ broncobuster
 broncobusters
 broncos
 broncs
+bronies
 brontosaur
 brontosaurs
 brontosaurus
 brontosauruses
 bronx
+brony
 bronze
 bronzed
 bronzer
@@ -58405,9 +58417,11 @@ membrane
 membranes
 membranous
 membranously
+meme
 memento
 mementoes
 mementos
+memes
 memo
 memoir
 memoirs
@@ -62108,6 +62122,7 @@ mythologists
 mythology
 mythos
 myths
+my ass
 na
 nab
 nabbed
@@ -71535,6 +71550,7 @@ playpens
 playroom
 playrooms
 plays
+playstation
 playsuit
 playsuits
 plaything
@@ -78552,6 +78568,7 @@ redder
 reddest
 reddish
 reddishness
+reddit
 reddle
 redecorate
 redecorated
@@ -85794,6 +85811,8 @@ selfheal
 selfheals
 selfhood
 selfhoods
+selfie
+selfies
 selfing
 selfish
 selfishly
@@ -100459,6 +100478,7 @@ tumbleweed
 tumbleweeds
 tumbling
 tumblings
+tumblr
 tumbrel
 tumbrels
 tumbrils
@@ -108877,6 +108897,7 @@ xanthochroid
 xanthoma
 xanthophyll
 xanthous
+xbox
 xebec
 xebecs
 xenia

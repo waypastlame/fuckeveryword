@@ -102,8 +102,15 @@ class MakeHandler(webapp2.RequestHandler):
 
 		self.redirect('/')
 
+class TestHandler(webapp2.RequestHandler):
+	def get(self):
+		tweet('fuck test')
+
+		self.redirect('/')
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/tweet', TweetHandler),
     ('/make', MakeHandler),
+    ('/test', TestHandler),
 ], debug=True)
