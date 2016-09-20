@@ -1,6 +1,9 @@
 #hide api keys from github
 settings.cfg
 
+*.xml
+*.iml
+
 #################
 ## Eclipse
 #################

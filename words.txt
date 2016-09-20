@@ -16784,8 +16784,12 @@ cirrose
 cirrostratus
 cirrous
 cirrus
+cis
 ciscoes
 ciscos
+cisgender
+cisgendered
+cisgenders
 cislunar
 cistern
 cisternal
@@ -17311,6 +17315,7 @@ clinkering
 clinkers
 clinking
 clinks
+clinton
 clip
 clipboard
 clipboards
@@ -17794,6 +17799,8 @@ cockney
 cockneys
 cockpit
 cockpits
+cockring
+cockrings
 cockroach
 cockroaches
 cocks
@@ -22486,6 +22493,8 @@ cuboid
 cuboidal
 cuboids
 cubs
+cuckhold
+cuckholds
 cuckold
 cuckolded
 cuckolding
@@ -23117,6 +23126,7 @@ cypriotes
 cypriots
 cyprus
 cypruses
+cyrus
 cyst
 cystectomies
 cystic
@@ -23155,6 +23165,7 @@ czechoslovakian
 czechoslovakians
 czechoslovaks
 czechs
+d
 dab
 dabbed
 dabbing
@@ -23586,6 +23597,8 @@ dawdler
 dawdlers
 dawdles
 dawdling
+dawg
+dawgs
 dawn
 dawned
 dawning
@@ -24316,6 +24329,8 @@ deescalates
 deescalating
 deescalation
 deescalations
+deez
+deeznuts
 deface
 defaced
 defacement
@@ -24875,6 +24890,7 @@ delver
 delvers
 delves
 delving
+dem
 demagnetization
 demagnetize
 demagnetized
@@ -26193,6 +26209,7 @@ dextrorotary
 dextrose
 dextroses
 dextrous
+dey
 dezinc
 dharma
 dharmas
@@ -29398,6 +29415,7 @@ dryrot
 drys
 drywall
 drywalls
+ds
 duad
 duads
 dual
@@ -40520,7 +40538,6 @@ glances
 glancing
 glancingly
 gland
-
 glanders
 glandes
 glands
@@ -43222,6 +43239,7 @@ happiness
 happing
 happy
 haps
+harambe
 harangue
 harangued
 haranguer
@@ -44722,6 +44740,7 @@ hilariousness
 hilarities
 hilarity
 hill
+hillary
 hillbillies
 hillbilly
 hilled
@@ -67392,6 +67411,7 @@ overvaluing
 overview
 overviews
 overviolent
+overwatch
 overwealthy
 overween
 overweening
