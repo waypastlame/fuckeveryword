@@ -53,7 +53,7 @@ class MainHandler(webapp2.RequestHandler):
 		if users.get_current_user():
 			url = users.create_logout_url(self.request.uri)
 			url_linktext = 'Hello, ' + user.nickname() + '. Logout'
-			if user.nickname() == "brendan10211" or user.nickname() == "test@example.com":
+			if user.nickname() == "anka.213" or user.nickname() == "test@example.com":
 				disabled = ""
 			else:
 				disabled = "disabled"
@@ -96,8 +96,12 @@ class TweetHandler(webapp2.RequestHandler):
 
 class MakeHandler(webapp2.RequestHandler):
 	def get(self):
+		try:
+		  init = int(self.request.get("nr"))
+		except:
+	          init = 0
 		index = Index()
-		index.index = 0
+		index.index = init
 		index.put()
 
 		self.redirect('/')
