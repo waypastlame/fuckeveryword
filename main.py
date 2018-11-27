@@ -92,7 +92,7 @@ class TweetHandler(webapp2.RequestHandler):
 		newIndex.index = indexNum
 		newIndex.put()
 
-		self.redirect('/')
+		# self.redirect('/')
 
 class MakeHandler(webapp2.RequestHandler):
 	def get(self):
