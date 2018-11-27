@@ -36,14 +36,15 @@ def tweet(status):
 
 	auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 	auth.set_access_token(ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
-	api = tweepy.API(auth)
+	api = tweepy.API(auth,retry_count=2, retry_delay=1,
+                         retry_errors=set([401, 404, 500, 503]))
 	result = api.update_status(status)
 
 def get_current_line(index):
 	with open("words.txt") as source_fh:
 		for i in range(index+1):
-			status_str = "fuck " + source_fh.readline().strip()
-		return status_str
+			status_str = source_fh.readline().strip()
+		return "fuck " + status_str
 
 class MainHandler(webapp2.RequestHandler):
 	def get(self):
@@ -81,10 +82,9 @@ class TweetHandler(webapp2.RequestHandler):
 		try:
 			tweet(tweet_text)
 			logging.info(tweet_text)
+			indexNum += 1
 		except TweepError as e: 
-			logging.info(e)
-
-		indexNum += 1
+			logging.exception(e)
 
 		db.delete(db.Query())
 
