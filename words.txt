@@ -99321,6 +99321,9 @@ transfusing
 transfusion
 transfusional
 transfusions
+transgender
+transgendered
+transgenders
 transgress
 transgressed
 transgresses
